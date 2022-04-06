@@ -1,0 +1,133 @@
+<div class="score-root">
+  <div class="actions-block">
+    <div *ngIf="!game.isGameEnded" class="description">Pin knoked down:</div>
+    <div *ngIf="!game.isGameEnded" class="pins-buttons">
+      <button
+        [disabled]="0 > lastTrowRest"
+        (click)="trow(0)"
+        class="pin-button"
+      >
+        0
+      </button>
+      <button
+        [disabled]="1 > lastTrowRest"
+        (click)="trow(1)"
+        class="pin-button"
+      >
+        1
+      </button>
+      <button
+        [disabled]="2 > lastTrowRest"
+        (click)="trow(2)"
+        class="pin-button"
+      >
+        2
+      </button>
+      <button
+        [disabled]="3 > lastTrowRest"
+        (click)="trow(3)"
+        class="pin-button"
+      >
+        3
+      </button>
+      <button
+        [disabled]="4 > lastTrowRest"
+        (click)="trow(4)"
+        class="pin-button"
+      >
+        4
+      </button>
+      <button
+        [disabled]="5 > lastTrowRest"
+        (click)="trow(5)"
+        class="pin-button"
+      >
+        5
+      </button>
+      <button
+        [disabled]="6 > lastTrowRest"
+        (click)="trow(6)"
+        class="pin-button"
+      >
+        6
+      </button>
+      <button
+        [disabled]="7 > lastTrowRest"
+        (click)="trow(7)"
+        class="pin-button"
+      >
+        7
+      </button>
+      <button
+        [disabled]="8 > lastTrowRest"
+        (click)="trow(8)"
+        class="pin-button"
+      >
+        8
+      </button>
+      <button
+        [disabled]="9 > lastTrowRest"
+        (click)="trow(9)"
+        class="pin-button"
+      >
+        9
+      </button>
+      <button
+        [disabled]="10 > lastTrowRest"
+        (click)="trow(10)"
+        class="pin-button"
+      >
+        10
+      </button>
+    </div>
+    <div *ngIf="game.isGameEnded" class="description">
+      Game over! Winner:
+      <span class="winner-name">{{ " " + game.getWinner }}</span>
+    </div>
+    <button (click)="gameEnd()" class="endgame-button">End game</button>
+  </div>
+
+  <div class="score-block">
+    <div class="score-header">
+      <div class="header-name">
+        Current trow:
+        <span class="player-name">{{ " " + game.currentPlayerName }}</span>
+      </div>
+      <div
+        *ngFor="let number of headerNumbers; let i = index"
+        [ngClass]="{
+          'header-item': true,
+          'header-item-current': i === game.currentFrame
+        }"
+        class="header-item"
+      >
+        {{ number }}
+      </div>
+      <div class="header-item">Total</div>
+    </div>
+
+    <div class="score-body">
+      <div *ngFor="let player of game.getPlayers" class="player-row">
+        <div class="row-name">{{ player.name }}</div>
+        <div
+          *ngFor="let frame of player.getFrames(); let i = index"
+          class="row-item"
+        >
+          <div class="pins-points">
+            {{ frame.pinsKnocked[0] + " | " + frame.pinsKnocked[1] }}
+          </div>
+          <div class="frame-points">
+            {{
+              i < game.currentFrame
+                ? frame.framePoints + previousPoints(player.getFrames(), i)
+                : i === game.currentFrame
+                ? player.totalScore
+                : frame.framePoints
+            }}
+          </div>
+        </div>
+        <div class="row-item">{{ player.totalScore }}</div>
+      </div>
+    </div>
+  </div>
+</div>

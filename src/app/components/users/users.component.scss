@@ -1,0 +1,63 @@
+@import "../../styles/styles.scss";
+.users-root {
+  @include flex(column, null, null);
+  width: 100%;
+  .actions-block {
+    @include flex(row, space-between, center);
+    margin-bottom: 40px;
+    width: 100%;
+    .input-form {
+      @include flex(row, null, center);
+      .user-input {
+        @include custom-input();
+        margin-right: 20px;
+        width: 350px;
+        height: 29.5px;
+      }
+      .add-button {
+        @include custom-button($text-main-color, $accept-color);
+      }
+    }
+    .start-button {
+      @include custom-button($text-main-color, $action-color);
+    }
+  }
+  .users-block {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    .user-card {
+      @include flex(column, null, null);
+      position: relative;
+      margin: 10px;
+      padding: 20px;
+      background-color: $main-color;
+      border-radius: $box-radius;
+      box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+      .user-name {
+        color: $text-main-color;
+        font-size: 18px;
+        font-family: $font-family;
+      }
+      .user-number {
+        color: $text-secondary-color;
+        font-size: 15px;
+        font-family: $font-family;
+        margin-top: 10px;
+      }
+      .close-icon {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        font-size: 20px;
+        color: $text-secondary-color;
+        transition: 0.4s;
+        cursor: pointer;
+        &:hover {
+          color: $action-color;
+        }
+      }
+    }
+  }
+}

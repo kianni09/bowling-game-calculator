@@ -1,0 +1,72 @@
+@import "./variables.styles.scss";
+//Mixins
+@mixin flex($dir, $just, $align) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+}
+
+@mixin custom-input {
+  border: none;
+  border: 2px solid $text-secondary-color;
+  background: transparent !important;
+  color: $text-main-color !important;
+  font-size: $main-text-size !important;
+  padding: 3px 5px !important;
+  border-radius: $box-radius;
+  transition: 0.4s;
+  &:focus {
+    outline: none;
+    color: $text-main-color;
+    border: 2px solid $action-color;
+  }
+}
+
+@mixin custom-button($text-color, $button-color) {
+  @include flex(row, center, center);
+  padding: 6px 10px;
+  border: 2px solid $button-color;
+  color: $text-color;
+  font-size: 20px;
+  font-family: $font-family;
+  border-radius: $box-radius;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  &:hover {
+    background-color: $button-color;
+    color: $main-color;
+  }
+  &:disabled {
+    border-color: $text-secondary-color;
+    background-color: $text-secondary-color;
+    color: $main-color;
+    cursor: default;
+  }
+  &:focus {
+    outline: 0;
+  }
+  &:active {
+    position: relative;
+    top: 1px;
+  }
+}
+
+@mixin custom-scrollbar {
+  overflow: auto;
+  scrollbar-color: $selection-color-second rgba(0, 0, 0, 0.082) !important;
+  scrollbar-width: thin !important;
+  &::-webkit-scrollbar {
+    width: 3px !important;
+    height: 3px !important;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 10px !important;
+    -webkit-box-shadow: inset 0 0 6px $selection-color-second !important;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.082) !important;
+    border-radius: 10px !important;
+  }
+}

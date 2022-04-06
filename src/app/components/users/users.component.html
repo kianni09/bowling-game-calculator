@@ -1,0 +1,42 @@
+<div class="users-root">
+  <div class="actions-block">
+    <form
+      [formGroup]="addUserFormGroup"
+      novalidate
+      (ngSubmit)="addNewPlayer()"
+      class="input-form"
+    >
+      <input
+        formControlName="userName"
+        class="user-input"
+        type="text"
+        placeholder="Enter name"
+        autocomplete="new-password"
+      />
+      <button
+        type="submit"
+        [disabled]="addUserFormGroup.invalid"
+        class="add-button"
+      >
+        Add player
+      </button>
+    </form>
+
+    <button
+      (click)="startGame()"
+      [disabled]="!players.length"
+      class="start-button"
+    >
+      Start game!
+    </button>
+  </div>
+  <div class="users-block">
+    <div *ngFor="let player of players; let i = index" class="user-card">
+      <span (click)="deletePlayer(i)" class="material-icons close-icon"
+        >close</span
+      >
+      <div class="user-name">{{ player }}</div>
+      <div class="user-number">{{ "Player " + (i + 1) }}</div>
+    </div>
+  </div>
+</div>

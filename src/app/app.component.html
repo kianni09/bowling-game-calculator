@@ -1,0 +1,14 @@
+<div class="app-root">
+  <div class="template">
+    <div class="header">
+      <img width="45" height="70" src="/assets/logo.png" alt="Logo" />
+      <div class="logo-name">
+        Bowling club <span style="color: plum">Purple Flamingo</span>
+      </div>
+    </div>
+    <div class="workspace">
+      <app-users *ngIf="!(statusGame | async)"></app-users>
+      <app-game-score *ngIf="statusGame | async"></app-game-score>
+    </div>
+  </div>
+</div>

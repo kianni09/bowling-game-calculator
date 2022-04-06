@@ -1,0 +1,111 @@
+@import "./variables.styles.scss";
+//Animations
+$size: 300px;
+$clr-bg: #272324;
+$clr1: #d0241d;
+$clr2: #ffcc7b;
+$clr3: #61c589;
+$clr4: #40cde8;
+$clr5: #ff805d;
+.spinner-small {
+  $animation-duration: 1000ms;
+  width: 180px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .spinner-item {
+    width: 9px;
+    height: 100%;
+    border-radius: 6px;
+    animation: spinner1 $animation-duration ease-in-out infinite;
+  }
+  @keyframes spinner1 {
+    50% {
+      transform: scaleY(0.25);
+    }
+  }
+  .spinner-item:nth-child(1) {
+    background-color: $clr1;
+    animation-delay: $animation-duration / 10;
+  }
+  .spinner-item:nth-child(2) {
+    background-color: $clr5;
+    animation-delay: $animation-duration / 10 * -1;
+  }
+  .spinner-item:nth-child(3) {
+    background-color: $clr3;
+    animation-delay: $animation-duration / 10 * -2;
+  }
+  .spinner-item:nth-child(4) {
+    background-color: $clr4;
+    animation-delay: $animation-duration / 10 * -3;
+  }
+  .spinner-item:nth-child(5) {
+    background-color: $clr2;
+    animation-delay: $animation-duration / 10 * -4;
+  }
+}
+
+.spinner {
+  $animation-duration: 1000ms;
+  width: $size;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  .spinner-item {
+    width: $size / 20;
+    height: 80%;
+    border-radius: 6px;
+    animation: spinner1 $animation-duration ease-in-out infinite;
+  }
+  @keyframes spinner1 {
+    50% {
+      transform: scaleY(0.25);
+    }
+  }
+  .spinner-item:nth-child(1) {
+    background-color: $clr1;
+    animation-delay: $animation-duration / 10;
+  }
+  .spinner-item:nth-child(2) {
+    background-color: $clr5;
+    animation-delay: $animation-duration / 10 * -1;
+  }
+  .spinner-item:nth-child(3) {
+    background-color: $clr3;
+    animation-delay: $animation-duration / 10 * -2;
+  }
+  .spinner-item:nth-child(4) {
+    background-color: $clr4;
+    animation-delay: $animation-duration / 10 * -3;
+  }
+  .spinner-item:nth-child(5) {
+    background-color: $clr2;
+    animation-delay: $animation-duration / 10 * -4;
+  }
+}
+
+.load-animation {
+  width: 250px;
+  height: 5px;
+  background: $text-secondary-color;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: "";
+    width: 70px;
+    height: 5px;
+    background-color: $action-color;
+    position: absolute;
+    left: -34px;
+    animation: orangebar 1.4s infinite ease;
+  }
+}
+
+@keyframes orangebar {
+  50% {
+    left: 195px;
+  }
+}

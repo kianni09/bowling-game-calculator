@@ -1,0 +1,35 @@
+@import "./styles/styles.scss";
+.app-root {
+  @include flex(row, center, null);
+  background-color: $background-color;
+  width: 100vw;
+  height: 100vh;
+  .template {
+    @include flex(column, null, null);
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    .header {
+      @include flex(row, null, center);
+      background-color: $selection-color-second;
+      width: calc(100% - 80px);
+      height: 100px;
+      padding: 0px 40px;
+      .logo-name {
+        color: $main-color;
+        margin-right: 10px;
+        font-size: 35px;
+        font-family: $logo-font;
+        margin-left: 20px;
+      }
+    }
+    .workspace {
+      @include flex(column, null, null);
+      @include custom-scrollbar();
+      background-color: $main-color;
+      width: calc(100% - 80px);
+      height: calc(100% - 180px);
+      padding: 40px;
+    }
+  }
+}

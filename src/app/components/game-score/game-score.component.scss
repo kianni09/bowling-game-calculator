@@ -1,0 +1,96 @@
+@import "../../styles/styles.scss";
+.score-root {
+  @include flex(column, null, null);
+  width: 100%;
+  .actions-block {
+    @include flex(row, space-between, center);
+    width: 100%;
+    padding-bottom: 40px;
+    .description {
+      color: $text-main-color;
+      font-size: 22px;
+      font-family: $font-family;
+      .winner-name {
+        color: $action-color;
+      }
+    }
+    .pins-buttons {
+      @include flex(row, null, center);
+      .pin-button {
+        @include custom-button($text-main-color, $action-color);
+        margin-right: 10px;
+      }
+    }
+    .endgame-button {
+      @include custom-button($text-main-color, $deccept-color);
+    }
+  }
+  .score-block {
+    @include flex(column, null, null);
+    width: 100%;
+    .score-header {
+      @include flex(row, null, center);
+      width: 100%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.288);
+      .header-name {
+        width: calc(100% - 880px);
+        color: $text-main-color;
+        font-size: 18px;
+        font-family: $font-family;
+        .player-name {
+          color: $action-color;
+        }
+      }
+      .header-item {
+        @include flex(row, center, center);
+        width: 80px;
+        height: 80px;
+        color: $text-main-color;
+        font-size: 18px;
+        font-family: $font-family;
+      }
+      .header-item-current {
+        width: 78px !important;
+        height: 78px !important;
+        border: 1px solid $action-color;
+        color: $action-color !important;
+        font-size: 20px !important;
+        border-radius: $box-radius;
+      }
+    }
+    .score-body {
+      @include flex(column, null, null);
+      width: 100%;
+      .player-row {
+        @include flex(row, null, center);
+        width: 100%;
+        padding: 10px 0px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.288);
+        .row-name {
+          width: calc(100% - 880px);
+          color: $text-main-color;
+          font-size: 18px;
+          font-family: $font-family;
+        }
+        .row-item {
+          @include flex(column, center, center);
+          width: 74px;
+          height: 74px;
+          margin: 2px;
+          border: 1px solid rgba(0, 0, 0, 0.288);
+          border-radius: $box-radius;
+          color: $text-main-color;
+          font-size: 18px;
+          font-family: $font-family;
+          .pins-points {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.288);
+            padding-bottom: 5px;
+          }
+          .frame-points {
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
